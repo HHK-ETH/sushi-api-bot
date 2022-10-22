@@ -1,6 +1,6 @@
-# discord-ts-template
+# sushi api bot
 
- Template to easily start the development of a typescript discord bot.
+ Ping on discord when API is not working properly.
 
 ## Usage
 

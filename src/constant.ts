@@ -7,7 +7,7 @@ enum CHAIN_IDS {
   Optimism = 10,
   BSC = 56,
   Gnosis = 100,
-  Fusse = 122,
+  Fuse = 122,
   Polygon = 137,
   Fantom = 250,
   Boba = 288,

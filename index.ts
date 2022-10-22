@@ -42,7 +42,7 @@ client.login(process.env.DISCORD_TOKEN).then(
         textChannel.send({ content: priceState.msg + '. ' + users?.join(' ') });
         lastPricePing = Date.now();
       }
-    }, 300_000);
+    }, 300_000); //5 min
 
     //add commands
     client.on('interactionCreate', async (interaction) => {
