@@ -8,9 +8,10 @@ if (!token || !clientId) {
   throw Error('Incomplete env file.');
 }
 
-const commands = [new SlashCommandBuilder().setName('ping').setDescription('Reply with pong!')].map((command) =>
-  command.toJSON()
-);
+const commands = [
+  new SlashCommandBuilder().setName('ping-price').setDescription('Reply with Price API state!'),
+  new SlashCommandBuilder().setName('ping-farm').setDescription('Reply with Farm API state!'),
+].map((command) => command.toJSON());
 
 const rest = new REST({ version: '9' }).setToken(token);
 
