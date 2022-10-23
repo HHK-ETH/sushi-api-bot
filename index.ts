@@ -52,11 +52,11 @@ client.login(process.env.DISCORD_TOKEN).then(
 
       if (commandName === 'ping-price') {
         const { success, msg } = await checkPrices();
-        await interaction.reply({ content: success ? 'API working as expected.' : msg });
+        await interaction.reply({ content: success ? 'API working as expected.' : msg, ephemeral: true });
       }
       if (commandName === 'ping-farm') {
         const { success, msg } = await checkFarms();
-        await interaction.reply({ content: success ? 'API working as expected.' : msg });
+        await interaction.reply({ content: success ? 'API working as expected.' : msg, ephemeral: true });
       }
     });
   },
