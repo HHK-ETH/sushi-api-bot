@@ -10,7 +10,7 @@ enum CHAIN_IDS {
   Fuse = 122,
   Polygon = 137,
   Fantom = 250,
-  Boba = 288,
+  //Boba = 288,
   Metis = 1088,
   Moonbeam = 1284,
   Moonriver = 1285,
