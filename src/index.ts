@@ -15,8 +15,8 @@ async function checkFarms(): Promise<{ success: boolean; msg: string }> {
   const result: { [chain: number]: { updatedSecondsAgo: number } } = (await query.json()) as any;
   for (const chainId in result) {
     const farm = result[chainId];
-    //3 hours
-    if (farm.updatedSecondsAgo > 3600 * 3) {
+    //6 hours
+    if (farm.updatedSecondsAgo > 3600 * 6) {
       chainsNotUpdated.push(CHAIN_IDS[chainId]);
     }
   }
@@ -24,7 +24,7 @@ async function checkFarms(): Promise<{ success: boolean; msg: string }> {
   if (chainsNotUpdated.length > 0) {
     return {
       success: false,
-      msg: `Farm API hasn't been updated during the last 3 hours on the given chains: ${chainsNotUpdated.join(', ')}`,
+      msg: `Farm API hasn't been updated during the last 6 hours on the given chains: ${chainsNotUpdated.join(', ')}`,
     };
   }
 
