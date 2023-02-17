@@ -35,29 +35,29 @@ client.login(process.env.DISCORD_TOKEN).then(
     let priceUnsuccessfulAttempts = 0;
     setInterval(async () => {
       const farmState = await checkFarms();
-      if (farmState.success === false && lastFarmPing + silenceDuration < Date.now()) {
-        if (farmUnsuccessfulAttempts > 3) {
+      if (farmState.success === false) {
+        if (farmUnsuccessfulAttempts > 3 && lastFarmPing + silenceDuration < Date.now()) {
           textChannel.send({ content: farmState.msg + '. ' + users?.join(' ') });
           lastFarmPing = Date.now();
         } else {
           farmUnsuccessfulAttempts += 1;
         }
-      } else if (farmState.success) {
+      } else {
         farmUnsuccessfulAttempts = 0;
       }
 
       const priceState = await checkPrices();
-      if (priceState.success === false && lastPricePing + silenceDuration < Date.now()) {
-        if (priceUnsuccessfulAttempts > 3) {
+      if (priceState.success === false) {
+        if (priceUnsuccessfulAttempts > 3 && lastPricePing + silenceDuration < Date.now()) {
           textChannel.send({ content: priceState.msg + '. ' + users?.join(' ') });
           lastPricePing = Date.now();
         } else {
           priceUnsuccessfulAttempts += 1;
         }
-      } else if (priceState.success) {
+      } else {
         priceUnsuccessfulAttempts = 0;
       }
-    }, 300_000); //5 min
+    }, 900_000); //15 min
 
     //add commands
     client.on('interactionCreate', async (interaction) => {
